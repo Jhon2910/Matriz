@@ -36,17 +36,17 @@ public class jonathan3 {
         media = (double) soma / (semana * 7);
 
         int AbaixoMedia[] = new int[semana];
-        int menor[] = new int[semana];
 
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length - i; j++) {
-
+            for (int j = 0; j < matriz[i].length; j++) {
                 if (matriz[i][j] > media) {
                     acima += 1;
                 } else {
-                    menor[j] = matriz[i][j];
-                    if (matriz[i][j] < menor[j]) {
-                        AbaixoMedia[i] = j + 1;
+                    if (matriz[i][j] < menorDia) {
+                        if (j < 7) {
+                            menorDia = matriz[i][j];
+                            AbaixoMedia[i] = j + 1;
+                        }
                     }
                 }
             }
@@ -57,16 +57,15 @@ public class jonathan3 {
 
     public static void relatorio(int semana, double media, int acima, int AbaixoMedia[]) {
 
-
-        System.out.printf("Relatório de produção relativo a %d semanas", semana);
-        System.out.println("---------------------------------------------------");
+        System.out.printf("\nRelatório de produção relativo a %d semanas", semana);
+        System.out.println("\n---------------------------------------------------");
         System.out.printf("\nProdução média = %.2f", media);
-        System.out.printf("Número de dias com produção acima da média = %d", acima);
+        System.out.printf("\nNúmero de dias com produção acima da média = %d", acima);
         System.out.println(" ");
         System.out.print("\nIndicação dos dias de mínima produção: ");
         for (int i = 0; i < semana; i++) {
             System.out.printf("\nSemana %d .............................. dia %d", i + 1, AbaixoMedia[i]);
         }
-        System.out.print("\n-----------------------------------------");
+        System.out.print("\n---------------------------------------------------------");
     }
 }
