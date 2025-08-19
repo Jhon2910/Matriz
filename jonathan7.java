@@ -25,7 +25,7 @@ public class jonathan7 {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 linha[i] += matriz[i][j];
-                coluna[j] += matriz[j][i];
+                coluna[j] += matriz[i][j];
             }
         }
 
