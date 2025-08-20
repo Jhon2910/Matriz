@@ -27,7 +27,7 @@ public class jonathan9 {
 
         System.out.println(" ");
 
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 7; j++) {
             if (MINMAX < matriz[menorLinha][j]) {
                 MINMAX = matriz[menorLinha][j];
                 colMINMAX = j;
