@@ -1,33 +1,41 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
-public class jonathan6 {
+public class jonathan9 {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Random r = new Random();
 
-        Random random = new Random();
-
-        double matriz[][] = new double[4][7];
-        double menor = Double.MAX_VALUE;
-        int linhaM = 0;
-        double MINMAX = Double.MAX_VALUE;
+        int matriz[][] = new int[4][7];
+        int menor = Integer.MAX_VALUE;
+        int menorLinha = 0;
+        int MINMAX = Integer.MIN_VALUE;
+        int colMINMAX = 0;
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                matriz[i][j] = random.nextDouble(101);
-                if ((i == 0 && j == 0) || matriz[i][j] < menor) {
+                matriz[i][j] = r.nextInt(0, 22);
+                if (matriz[i][j] < menor) {
                     menor = matriz[i][j];
-                    linhaM = i;
+                    menorLinha = i;
                 }
+                System.out.println(matriz[i][j]);
             }
+            System.out.println(" ");
         }
 
-        for (int j = 0; j < matriz[0].length; j++) {
-            if (matriz[linhaM][j] > MINMAX) {
-                MINMAX = matriz[linhaM][j];
+        System.out.println(" ");
+
+        for (int j = 0; j < 3; j++) {
+            if (MINMAX < matriz[menorLinha][j]) {
+                MINMAX = matriz[menorLinha][j];
+                colMINMAX = j;
             }
         }
-        System.out.print(MINMAX);
+        System.out.println(MINMAX);
+        System.out.println(menorLinha);
+        System.out.println(colMINMAX);
+
     }
 }
